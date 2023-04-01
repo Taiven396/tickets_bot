@@ -7,7 +7,8 @@ from keyboards.inline.start import kb_start
 
 
 @dp.message_handler(state=UserTripInfo.game)
-async def check_city(message: types.Message, state: FSMContext):
+async def bot_answer_with_help(getted_city: str, message,
+                     state: FSMContext) -> None:
     """
     Функция проверяет было ли использовано
     название города в игре и вообще существует
@@ -17,30 +18,12 @@ async def check_city(message: types.Message, state: FSMContext):
     :param state: (FSMContext) машина состояний
     """
     async with state.proxy() as data:
-        last_city_letter = data['city_out'][-1][-1]
-        if last_city_letter == 'ъ' or last_city_letter == 'ь':
-            last_city_letter = data['city_out'][-2][-2]
+        if getted_city[-1] == 'ь' or getted_city[-1] == 'ъ':
+            await message.answer(f'Мне на букву {getted_city[-2]}')
+            new_letter = getted_city[-2]
         else:
-            pass
-        if message.text.title() in data["city_out"]:
-            await message.answer('Такой город уже был.')
-            return
-        if not message.text.title() in data["city_in_game"]:
-            await message.answer('Такого города не существует.')
-            return
-        if not message.text.lower().startswith(last_city_letter):
-            await message.answer(f'Вам нужно назвать город на букву'
-                                 f' {last_city_letter}.')
-            return
-        data['city_in_game'].remove(message.text.title())
-        data['city_out'].append(message.text.title())
-        if message.text[-1] == 'ь' or message.text[-1] == 'ъ':
-            await message.answer(f'Мне на букву {message.text[-2]}')
-            new_letter = message.text[-2]
-        else:
-            await message.answer(f'Мне на букву {message.text[-1]}')
-            new_letter = message.text[-1]
-
+            await message.answer(f'Мне на букву {getted_city[-1]}')
+            new_letter = getted_city[-1]
         cur_city = None
         for city in data['city_in_game']:
             if city.lower().startswith(new_letter):
@@ -51,15 +34,18 @@ async def check_city(message: types.Message, state: FSMContext):
             if city[-1] == 'ь' or city[-1] == 'ъ':
                 await message.answer(f'Вам на букву {city[-2]}',
                                          reply_markup=kb_game())
-                return
+                data['city_in_game'].remove(city)
+                data['city_out'].append(city)
+                return None
             else:
                 await message.answer(f'Вам на букву {city[-1]}',
                                          reply_markup=kb_game())
                 data['city_in_game'].remove(city)
                 data['city_out'].append(city)
-                return
+                return None
         await message.answer(f'Городов на букву {new_letter}'
                              f'больше нет.\nИгра окончена!')
         await state.reset_state()
         await message.answer('Чем еще могу помочь?',
                              reply_markup=kb_start())
+        return None
