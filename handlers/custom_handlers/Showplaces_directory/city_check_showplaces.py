@@ -17,10 +17,14 @@ async def city_name_showplaces_check(message: types.Message,
     """
     info = get_city_name(message.text)
     if info is None:
-        await message.answer('Такой город не найден, попробуйте еще раз.')
-        return
+        await message.answer(
+            'Такой город не найден, попробуйте еще раз.'
+        )
+        return None
     else:
-        await message.answer(f'В базе найден город {info["name"]},'
-                            f' вы имели ввиду его?',
-                            reply_markup=kb_yes_no())
+        await message.answer(
+            f'В базе найден город {info["name"]},'
+            f' вы имели ввиду его?',
+            reply_markup=kb_yes_no()
+        )
         await state.update_data(showplaces_city=info["name"])

@@ -42,7 +42,8 @@ async def cheapest_tickets_output(callback: CallbackQuery,
                         f'Вылет: {ticket["departure_at"][0:10]}  ' 
                         f'{ticket["departure_at"][12:18]}\n' 
                         f'Цена (руб): {ticket["price"]}\n' 
-                        f'Ссылка: https://www.aviasales.ru{ticket["link"]}')
+                        f'Ссылка: https://www.aviasales.ru{ticket["link"]}'
+            )
             await add_to_db_cheapest_return(data=data, user_id=callback.from_user.id)
         except IndexError:
             await callback.message.answer(f'Билет из {data["destination_city"]}\n'

@@ -49,4 +49,4 @@ async def dialog_calendar_departure_at(callback: CallbackQuery,
                 reply('Планируемая дата вылета указана неверно, '
                       'попробуйте еще раз.',
                       reply_markup=await DialogCalendar().start_calendar())
-            return
+            return None

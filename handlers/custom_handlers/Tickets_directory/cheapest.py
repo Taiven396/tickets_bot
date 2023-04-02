@@ -2,6 +2,8 @@ from loader import dp
 from aiogram import types
 from FSM.FSM import UserTripInfo
 from aiogram.dispatcher import FSMContext
+from datetime import datetime
+from loguru import logger
 
 
 @dp.callback_query_handler(text=['cheapest'])
@@ -17,6 +19,11 @@ async def ask_departure_city_cheapest(callback: types.CallbackQuery,
     нажатия инлайн кнопки
     :param state: (FSMContex) машина состояний
     """
+    logger.info(
+        f'\nПользователь: {callback.from_user.full_name}, '
+        f'id: {callback.from_user.id}, начал поиск '
+        f'самых дешёвых билетов в {datetime.now()}'
+    )
     await callback.message.answer('Введите город отправления.')
     await state.update_data(cheapest=True)
     await UserTripInfo.departure.set()

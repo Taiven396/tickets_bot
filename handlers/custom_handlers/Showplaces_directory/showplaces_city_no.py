@@ -13,5 +13,7 @@ async def city_name_showplaces_no(callback: types.CallbackQuery) -> None:
     :param callback: (CallbackQuery) объект
     после нажатия инлайн кнопки
     """
-    await callback.message.answer('Попробуйте ввести название города еще раз, '
-                                  'не используя сокращений.')
+    await callback.message.answer(
+        'Попробуйте ввести название города еще раз, '
+        'не используя сокращений.'
+    )

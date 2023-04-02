@@ -21,11 +21,11 @@ async def city_name_destination_check(message: types.Message,
     user_data = await state.get_data()
     if info is None:
         await message.reply('Такой город не найден, попробуйте еще раз.')
-        return
+        return None
     elif info["name"] == user_data["departure_city"]:
         await message.answer('Город назначения и город отправления\n'
                              'должны отличаться...')
-        return
+        return None
     else:
         await message.answer(f'В базе найден город {info["name"]}, '
                             f'вы имели ввиду его?',

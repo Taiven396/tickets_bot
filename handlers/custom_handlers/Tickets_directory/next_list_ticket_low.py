@@ -23,10 +23,12 @@ async def next_ticket_low(callback: CallbackQuery,
         data['now_number_tickets'] += 1
         if data['now_number_tickets'] == len(data["list_ticket"]):
             data['now_number_tickets'] = 0
-        await bot.edit_message_text(chat_id=callback.from_user.id,
-                                    message_id=callback.message.message_id,
-                                    text=next_previous_ticket(number=data['now_number_tickets'],
-                                                              data=data["list_ticket"]),
-                                    reply_markup=kb_next_previous(
-                                                        now_number=data["now_number_tickets"] + 1,
-                                                        number_all=len(data["list_ticket"])))
+        await bot.edit_message_text(
+            chat_id=callback.from_user.id,
+            message_id=callback.message.message_id,
+            text=next_previous_ticket(number=data['now_number_tickets'],
+                                      data=data["list_ticket"]),
+                                      reply_markup=kb_next_previous(
+                                                    now_number=data["now_number_tickets"] + 1,
+                                                    number_all=len(data["list_ticket"]))
+        )

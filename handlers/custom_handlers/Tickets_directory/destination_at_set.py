@@ -46,4 +46,4 @@ async def dialog_calendar_return_at(callback_query: CallbackQuery,
                       'рейса\nуказана неверно, '
                       'попробуйте еще раз.',
                       reply_markup=await DialogCalendar().start_calendar())
-            return
+            return None

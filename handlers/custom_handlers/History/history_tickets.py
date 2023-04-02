@@ -5,6 +5,8 @@ from DataBase.Tickets_DB import history
 from keyboards.inline.start import kb_start
 from FSM.FSM import UserTripInfo
 from aiogram.dispatcher import FSMContext
+from loguru import logger
+from datetime import datetime
 
 
 
@@ -19,6 +21,11 @@ async def tickets_history(callback: types.CallbackQuery,
     :param callback: CallbackQuery объект
     после нажатия инлайн кнопки
     """
+    logger.info(
+        f'\nПользователь: {callback.from_user.full_name}, '
+        f'id: {callback.from_user.id}, запросил '
+        f'историю запросов билетов в {datetime.now()}'
+    )
     await callback.message.answer('Собираю вашу историю запросов.')
     for search in history(user_id=callback.from_user.id):
         time.sleep(1)

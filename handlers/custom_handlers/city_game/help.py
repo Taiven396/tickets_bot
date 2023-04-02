@@ -21,7 +21,6 @@ async def help(callback: types.CallbackQuery,
     инлайн кнопки
     :param state: FSMContext машина состояний
     """
-    new_letter = ''
     async with state.proxy() as data:
         last_city_letter = data['city_out'][-1][-1]
         if last_city_letter == 'ъ' or last_city_letter == 'ь':
@@ -34,42 +33,24 @@ async def help(callback: types.CallbackQuery,
                 data['city_out'].append(city.title())
                 break
         if not cur_city is None:
-            await callback.message.answer(f'Спешу на помощь!\n'
-                                              f'{city.title()}')
-            # if city[-1] == 'ь' or city[-1] == 'ъ':
-            #     await callback.message.answer(f'Мне на букву {city[-2]}')
-            #     new_letter = city[-2]
-            # else:
-            #     await callback.message.answer(f'Мне на букву {city[-1]}')
-            #     new_letter = city[-1]
-            await bot_answer_with_help(getted_city=city, state=state, message=callback.message)
+            await callback.message.answer(
+                f'Спешу на помощь!\n'
+                f'{city.title()}'
+            )
+            await bot_answer_with_help(
+                getted_city=city,
+                state=state,
+                message=callback.message
+            )
             return None
         else:
-            await callback.message.answer(f'Городов на букву '
-                                          f'{last_city_letter}\n'
-                                          f'больше нет. Игра окончена!')
+            await callback.message.answer(
+                f'Городов на букву '
+                f'{last_city_letter}'
+                f'больше нет.\nИгра окончена!'
+            )
             await state.reset_state()
-            await callback.message.answer('Чем еще могу помочь?',
-                                  reply_markup=kb_start())
-        # cur_city = None
-        # for city in data['city_in_game']:
-        #     if city.lower().startswith(new_letter):
-        #         cur_city = city
-        #         break
-        # if not cur_city is None:
-        #     await callback.message.answer(f'{city.title()}')
-        #     if city[-1] == 'ь' or city[-1] == 'ъ':
-        #         await callback.message.answer(f'Вам на букву {city[-2]}',
-        #                                           reply_markup=kb_game())
-        #     else:
-        #         await callback.message.answer(f'Вам на букву {city[-1]}',
-        #                                           reply_markup=kb_game())
-        #         data['city_in_game'].remove(city)
-        #         data['city_out'].append(city)
-        #         return None
-        # await callback.message.answer(f'Городов на букву {new_letter}\n'
-        #                               f'больше нет. Игра окончена!')
-        # await state.reset_state()
-        # await callback.message.answer('Чем еще могу помочь?',
-        #                               reply_markup=kb_start())
-
+            await callback.message.answer(
+                'Чем еще могу помочь?',
+                reply_markup=kb_start()
+            )

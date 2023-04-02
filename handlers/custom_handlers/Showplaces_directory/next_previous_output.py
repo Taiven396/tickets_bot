@@ -23,10 +23,12 @@ async def next_showplace(callback: CallbackQuery,
         data['now_number'] += 1
         if data['now_number'] == len(data["showplaces_data"]):
             data['now_number'] = 0
-        await bot.edit_message_text(chat_id=callback.from_user.id,
-                                    message_id=callback.message.message_id,
-                                    text=next_previous(number=data['now_number'],
-                                                       data=data["showplaces_data"]),
-                                    reply_markup=kb_next_previous(
-                                                        now_number=data["now_number"] + 1,
-                                                        number_all=len(data["showplaces_data"])))
+        await bot.edit_message_text(
+            chat_id=callback.from_user.id,
+            message_id=callback.message.message_id,
+            text=next_previous(number=data['now_number'],
+                               data=data["showplaces_data"]),
+                               reply_markup=kb_next_previous(
+                                            now_number=data["now_number"] + 1,
+                                            number_all=len(data["showplaces_data"]))
+        )

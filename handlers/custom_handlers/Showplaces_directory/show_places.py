@@ -3,6 +3,7 @@ from aiogram import types
 from FSM.FSM import UserTripInfo
 
 
+
 @dp.callback_query_handler(text='showplaces')
 async def find_show_places(callback: types.CallbackQuery) -> None:
     """
@@ -13,5 +14,7 @@ async def find_show_places(callback: types.CallbackQuery) -> None:
     нажатия инлайн кнопки
     """
     await UserTripInfo.showplaces.set()
-    await callback.message.answer('Введите город для поиска '
-                                  'достопримечательностей.')
+    await callback.message.answer(
+        'Введите город для поиска '
+        'достопримечательностей.'
+    )

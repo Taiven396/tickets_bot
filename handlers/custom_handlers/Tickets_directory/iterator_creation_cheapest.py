@@ -24,35 +24,40 @@ async def set_direct(callback: CallbackQuery, state: FSMContext) -> None:
     user_data = await state.get_data()
     if user_data['cheapest'] == True:
         await callback.message.answer('Выполняю поиск.')
-        await callback.message.answer_sticker(r'CAACAgIAAxkBAAEIXCVkI3g'
-                                              r'297l5AAE19fHmEquhlMYIEcI'
-                                              r'AAq8lAAKbonBLuDnFfbteCGYvBA')
+        await callback.message.answer_sticker(
+            r'CAACAgIAAxkBAAEIXCVkI3g'
+            r'297l5AAE19fHmEquhlMYIEcI'
+            r'AAq8lAAKbonBLuDnFfbteCGYvBA'
+        )
         if not user_data.get('one_way'):
             async with state.proxy() as data:
-                await state.update_data(first_ticket=search_ticket(
-                                  departure=data["departure"],
-                                  destination=data["destination"],
-                                  departure_at=data["departure_at"],
-                                  return_at='',
-                                  direct=data["direct"]
-                                  ))
+                await state.update_data(
+                    first_ticket=search_ticket(
+                    departure=data["departure"],
+                    destination=data["destination"],
+                    departure_at=data["departure_at"],
+                    return_at='',
+                    direct=data["direct"])
+                )
             await cheapest_tickets_output(callback=callback, state=state)
         else:
             async with state.proxy() as data:
-                await state.update_data(first_ticket=search_ticket(
-                                        departure=data["departure"],
-                                        destination=data["destination"],
-                                        departure_at=data["departure_at"],
-                                        return_at='',
-                                        direct=data["direct"]
-                                        ))
-                await state.update_data(second_ticket=search_ticket(
-                                        departure=data["destination"],
-                                        destination=data["departure"],
-                                        departure_at=data["return_at"],
-                                        return_at='',
-                                        direct=data["direct"]
-                                        ))
+                await state.update_data(
+                    first_ticket=search_ticket(
+                    departure=data["departure"],
+                    destination=data["destination"],
+                    departure_at=data["departure_at"],
+                    return_at='',
+                    direct=data["direct"])
+                )
+                await state.update_data(
+                    second_ticket=search_ticket(
+                    departure=data["destination"],
+                    destination=data["departure"],
+                    departure_at=data["return_at"],
+                    return_at='',
+                    direct=data["direct"])
+                )
                 await cheapest_tickets_output(callback=callback, state=state)
     else:
         await UserTripInfo.sort_choice.set()

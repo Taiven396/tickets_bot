@@ -8,6 +8,8 @@ from utils.next_previous_showplace import next_previous
 from keyboards.inline.new_next_previous import kb_next_previous
 from keyboards.inline.start import kb_start
 from DataBase.Showplaces_DB import add_to_db_showplaces
+from loguru import logger
+from datetime import datetime
 
 
 @dp.callback_query_handler(text=['after_ticket_yes', 'yes'],
@@ -27,6 +29,10 @@ async def showplaces_search(callback: types.CallbackQuery,
                                           r'I3g297l5AAE19fHmEquhl'
                                           r'MYIEcIAAq8lAAKbonBLuDnFfbteCGYvBA')
     user_data = await state.get_data()
+    logger.info(f'\nПользователь: {callback.from_user.full_name},'
+                f'id: {callback.from_user.id}, начал поиск '
+                f'достопримечательностей в городе {user_data["showplaces_city"]}'
+                f' в {datetime.now()}')
     await add_to_db_showplaces(city=user_data["showplaces_city"],
                                user_id=callback.from_user.id)
     url = f'https://api.opentripmap.com/0.1/ru/places' \
