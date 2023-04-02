@@ -1,0 +1,12 @@
+2023-04-02 19:29:26.923 | INFO     | handlers.custom_handlers.send_welcome:send_welcome:16 - 
+Пользователь: Андрей ,id: 449192198, начал работу с ботом в 2023-04-02 19:29:26.923225, написав сообщение re
+2023-04-02 19:31:43.005 | INFO     | handlers.custom_handlers.city_game.lets_play:lest_play:21 - 
+Пользователь: Андрей, id: 449192198, начал игру "Города" в 2023-04-02 19:31:43.004584
+2023-04-02 19:41:44.368 | INFO     | handlers.custom_handlers.Tickets_directory.cheapest:ask_departure_city_cheapest:22 - 
+Пользователь: Андрей, id: 449192198, начал поиск самых дешёвых билетов в 2023-04-02 19:41:44.368920
+2023-04-02 19:43:05.345 | INFO     | handlers.custom_handlers.History.history_tickets:tickets_history:24 - 
+Пользователь: Андрей, id: 449192198, запросил историю запросов билетов в 2023-04-02 19:43:05.345031
+2023-04-02 19:44:56.931 | INFO     | handlers.custom_handlers.History.history_tickets:tickets_history:24 - 
+Пользователь: Андрей, id: 449192198, запросил историю запросов билетов в 2023-04-02 19:44:56.931660
+2023-04-02 19:48:15.363 | INFO     | handlers.custom_handlers.Showplaces_directory.showplaces_search:showplaces_search:32 - 
+Пользователь: Андрей,id: 449192198, начал поиск достопримечательностей в городе Rome в 2023-04-02 19:48:15.363106
