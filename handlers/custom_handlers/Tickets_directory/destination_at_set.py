@@ -33,10 +33,6 @@ async def dialog_calendar_return_at(callback_query: CallbackQuery,
                       return_date=date):
             await state.update_data(return_at=date.strftime("%Y-%m-%d"))
             user_data = await state.get_data()
-            await callback_query.answer(
-                f'Вы выбрали дату обратного рейса:'
-                f'\n{user_data["return_at"]}. '
-            )
             await callback_query.message.answer(
                 'Хотели бы вы рассмотреть варианты рейсов с пересадками?',
                 reply_markup=kb_yes_no()

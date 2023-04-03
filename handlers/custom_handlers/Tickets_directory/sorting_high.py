@@ -32,6 +32,7 @@ async def tickets_list_high(callback: types.CallbackQuery, state: FSMContext) ->
             r'MYIEcIAAq8lAAKbonBLuDnFfbteCGYvBA'
         )
         try:
+            print(f'{data["return_at"]}, туда {data["departure_at"]}')
             data["now_number_tickets"] = 0
             data['list_ticket'] = list(reversed(
                 search_ticket(departure=data["departure"],

@@ -17,10 +17,10 @@ def date_check(departure_date: datetime,
     """
     if return_date is None:
         cur_date = datetime.datetime.now()
-        if departure_date < cur_date:
+        if departure_date <= cur_date:
             return False
         return True
     else:
-        if return_date > departure_date:
+        if return_date >= departure_date:
             return True
         return False

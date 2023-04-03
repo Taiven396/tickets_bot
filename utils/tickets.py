@@ -1,6 +1,7 @@
 import requests
 from config_data import config
 from typing import List
+import pprint
 
 
 def search_ticket(departure: str, destination: str,
@@ -18,9 +19,10 @@ def search_ticket(departure: str, destination: str,
 	:param direct: str пересадки
 	:return:
 	"""
-    url = f"https://api.travelpayouts.com/aviasales/v3/prices_for_dates" \
-	      f"?origin={departure}&destination={destination}&currency=rub&" \
-		  f"departure_at={departure_at}&return_at={return_at}&sorting=" \
-		  f"price&direct={direct}&limit=30&token={config.TICKETS}"
+    url = (f"https://api.travelpayouts.com/aviasales/v3/prices_for_dates"
+	      f"?origin={departure}&destination={destination}&"
+		  f"departure_at={departure_at}&return_at={return_at}&sorting="
+		  f"price&direct={direct}&currency=rub&limit=30&token={config.TICKETS}")
+
     response = requests.get(url)
     return response.json()['data']

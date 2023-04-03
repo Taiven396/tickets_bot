@@ -5,7 +5,7 @@ from FSM.FSM import UserTripInfo
 from aiogram.types import CallbackQuery
 from utils.date_check import date_check
 from keyboards.inline.yes_no import kb_yes_no
-
+import datetime
 
 @dp.callback_query_handler(dialog_cal_callback.filter(),
                            state=UserTripInfo.departure_at)
@@ -31,9 +31,6 @@ async def dialog_calendar_departure_at(callback: CallbackQuery,
         if date_check(departure_date=date):
             user_data["departure_at"] = date.strftime("%Y-%m-%d")
             user_data["departure_at_datetime"] = date
-            # user_data = await state.get_data()
-            await callback.message.reply(f'Выбранная дата вылета: '
-                                               f'{user_data["departure_at"]}')
             if user_data['cheapest'] == True:
                 await UserTripInfo.one_way_or_not.set()
                 await callback.message.answer(
@@ -43,12 +40,17 @@ async def dialog_calendar_departure_at(callback: CallbackQuery,
             else:
                 await state.update_data(one_way=True)
                 await UserTripInfo.return_at.set()
-                await callback.message.\
-                    answer("Выберите планируемую дату обратного рейса",
-                           reply_markup=await DialogCalendar().start_calendar())
+                await callback.message.answer(
+                    "Для поиска подходящих рейсов,\n"
+                    "пожалуйста, выберите дату обратного вылета.\n"
+                    f"Она должна быть не ранее {user_data['departure_at']}",
+                    reply_markup=await DialogCalendar().start_calendar()
+                )
         else:
-            await callback.message.\
-                reply('Планируемая дата вылета указана неверно, '
-                      'попробуйте еще раз.',
-                      reply_markup=await DialogCalendar().start_calendar())
+            cur_date = datetime.datetime.now().strftime("%Y-%m-%d")
+            await callback.message.answer(
+                f'Извините, но введенная дата рейса некорректна.\n'
+                f'Дата должны быть не ранее {cur_date}',
+                reply_markup=await DialogCalendar().start_calendar()
+            )
             return None
