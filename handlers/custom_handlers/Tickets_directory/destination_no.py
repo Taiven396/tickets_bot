@@ -12,5 +12,8 @@ async def city_name_departure_no(callback: types.CallbackQuery) -> None:
     :param callback: (CallbackQuery) объект
     после нажатия инлайн кнопки
     """
-    await callback.message.answer('Попробуйте ввести город назначения еще раз,'
-                                  ' не используя сокращений.')
+    await callback.message.answer(
+        'К сожалению, я могу ошибаться.\nПопробуйте '
+        'написать название города полностью, '
+        'без сокращений.'
+    )

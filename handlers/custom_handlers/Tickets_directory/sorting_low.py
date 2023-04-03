@@ -7,6 +7,7 @@ from utils.tickets import search_ticket
 from keyboards.inline.new_next_previous import kb_next_previous
 from keyboards.inline.start import kb_start
 from loguru import logger
+from DataBase.Tickets_DB import add_to_db_tickets
 
 
 @dp.callback_query_handler(state=UserTripInfo.sort_choice, text='low')
@@ -24,6 +25,7 @@ async def tickets_list_low(callback: types.CallbackQuery,
     :param state: FSMContext машина состояний
     """
     async with state.proxy() as data:
+        await add_to_db_tickets(data=data, user_id=callback.from_user.id)
         data["now_number_tickets"] = 0
         data['list_ticket'] = search_ticket(
             departure=data["departure"],
@@ -32,6 +34,10 @@ async def tickets_list_low(callback: types.CallbackQuery,
             return_at=data["return_at"],
             direct=data["direct"]
         )
+    await callback.message.answer(
+        'Выполняю поиск билетов,\n'
+        'пожалуйста, подождите...'
+    )
     await callback.message.answer_sticker(
         r'CAACAgIAAxkBAAEIXCVkI3g'
         r'297l5AAE19fHmEquhlMYIEcI'

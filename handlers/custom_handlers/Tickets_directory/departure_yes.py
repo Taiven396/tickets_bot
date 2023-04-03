@@ -14,4 +14,4 @@ async def city_name_departure_yes(callback: types.CallbackQuery) -> None:
     нажатия инлайн кнопки
     """
     await UserTripInfo.destination.set()
-    await callback.message.answer("Введите город назначения.")
+    await callback.message.answer('Пожалуйста, введите город назначения.')

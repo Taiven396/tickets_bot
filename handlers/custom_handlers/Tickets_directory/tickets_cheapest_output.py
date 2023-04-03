@@ -54,6 +54,6 @@ async def cheapest_tickets_output(callback: CallbackQuery,
             pass
         await add_to_db_cheapest(data=data, user_id=callback.from_user.id)
         await UserTripInfo.showplaces.set()
-        await callback.message.answer(f'Хотите посмотреть достопримечательности'
-                                      f'города: {data["destination_city"]}',
+        await callback.message.answer(f'Хотите посмотреть достопримечательности\n'
+                                      f'города {data["destination_city"]}?',
                                       reply_markup=kb_after_ticket())

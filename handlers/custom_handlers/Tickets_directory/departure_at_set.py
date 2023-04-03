@@ -36,8 +36,10 @@ async def dialog_calendar_departure_at(callback: CallbackQuery,
                                                f'{user_data["departure_at"]}')
             if user_data['cheapest'] == True:
                 await UserTripInfo.one_way_or_not.set()
-                await callback.message.answer('Нужен ли обратный билет?',
-                                                    reply_markup=kb_yes_no())
+                await callback.message.answer(
+                    'Пожалуйста, укажите, нужен ли вам обратный билет?',
+                                              reply_markup=kb_yes_no()
+                )
             else:
                 await state.update_data(one_way=True)
                 await UserTripInfo.return_at.set()

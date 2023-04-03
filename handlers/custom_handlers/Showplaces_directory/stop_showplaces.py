@@ -17,5 +17,8 @@ async def next_showplace(callback: types.CallbackQuery,
     :param state: FSMContext машина состояний
     """
     await state.reset_state()
-    await callback.message.answer('Чем еще могу помочь?',
-                                  reply_markup=kb_start())
+    await callback.message.answer(
+        'Если у вас возникли еще вопросы, я готов помочь!\n'
+        'Выберите одну из доступных опций в меню ниже:',
+        reply_markup=kb_start()
+    )

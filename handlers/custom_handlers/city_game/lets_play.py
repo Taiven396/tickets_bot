@@ -7,7 +7,7 @@ from keyboards.inline.game import kb_game
 from loguru import logger
 from datetime import datetime
 import os
-
+import emoji
 
 @dp.callback_query_handler(text='game')
 async def lest_play(callback: types.CallbackQuery, state: FSMContext) -> None:
@@ -55,12 +55,16 @@ async def lest_play(callback: types.CallbackQuery, state: FSMContext) -> None:
 
     if game_start[-1] != 'ь' and game_start[-1] != 'ъ':
         await callback.message.answer(
-            f'Вам на букву {game_start[-1]}',
+            f"{emoji.emojize(':face_with_monocle:')} "
+            f"Теперь ваш ход!\n"
+            f"Назовите город на букву {game_start[-1]}",
             reply_markup=kb_game()
         )
     else:
         await callback.message.answer(
-            f'Вам на букву {game_start[-2]}',
+            f"{emoji.emojize(':face_with_monocle:')} "
+            f"Теперь ваш ход!\n"
+            f"Назовите город на букву {game_start[-2]}",
             reply_markup=kb_game()
         )
 

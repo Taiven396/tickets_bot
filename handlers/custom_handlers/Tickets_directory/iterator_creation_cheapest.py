@@ -23,7 +23,9 @@ async def set_direct(callback: CallbackQuery, state: FSMContext) -> None:
     """
     user_data = await state.get_data()
     if user_data['cheapest'] == True:
-        await callback.message.answer('Выполняю поиск.')
+        await callback.message.answer(
+            'Выполняю поиск билетов,\n'
+            'пожалуйста, подождите...')
         await callback.message.answer_sticker(
             r'CAACAgIAAxkBAAEIXCVkI3g'
             r'297l5AAE19fHmEquhlMYIEcI'
@@ -61,5 +63,7 @@ async def set_direct(callback: CallbackQuery, state: FSMContext) -> None:
                 await cheapest_tickets_output(callback=callback, state=state)
     else:
         await UserTripInfo.sort_choice.set()
-        await callback.message.reply('Как отсортировать список,\n',
-                                    reply_markup=kb_low_high())
+        await callback.message.reply(
+            'Пожалуйста, выберите способ сортировки билетов:',
+                                reply_markup=kb_low_high()
+        )

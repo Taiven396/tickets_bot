@@ -7,6 +7,7 @@ from utils.tickets import search_ticket
 from keyboards.inline.new_next_previous import kb_next_previous
 from keyboards.inline.start import kb_start
 from loguru import logger
+from DataBase.Tickets_DB import add_to_db_tickets
 
 
 @dp.callback_query_handler(state=UserTripInfo.sort_choice, text='high')
@@ -23,7 +24,9 @@ async def tickets_list_high(callback: types.CallbackQuery, state: FSMContext) ->
     :param state: FSMContext машина состояний
     """
     async with state.proxy() as data:
-        await callback.message.answer('Выполняю поиск.')
+        await callback.message.answer(
+            'Выполняю поиск билетов,\n'
+            'пожалуйста, подождите...')
         await callback.message.answer_sticker(
             r'CAACAgIAAxkBAAEIXCVkI3g297l5AAE19fHmEquhl'
             r'MYIEcIAAq8lAAKbonBLuDnFfbteCGYvBA'
@@ -43,7 +46,7 @@ async def tickets_list_high(callback: types.CallbackQuery, state: FSMContext) ->
                     next_previous_ticket(number=0, data=data["list_ticket"]),
                     reply_markup=kb_next_previous(now_number=1, number_all=len(data))
                 )
-                return
+                return None
         except TypeError:
             await state.reset_state()
             logger.exception(
@@ -52,6 +55,7 @@ async def tickets_list_high(callback: types.CallbackQuery, state: FSMContext) ->
                 f"id: {callback.from_user.id}, разница даты вылета"
                 f"и даты обратного вылета превысила 30 дней"
             )
+            await state.reset_state()
             await callback.message.answer(
                 'Разница в дате вылета и обратного рейса.\n'
                 'не должна превышать 30 дней.\n'
@@ -60,6 +64,8 @@ async def tickets_list_high(callback: types.CallbackQuery, state: FSMContext) ->
             )
     await state.reset_state()
     await callback.message.answer(
-        'Билеты не найдены.\nЧем могу еще помочь?',
+        'Билеты не найдены.\nЕсли у вас возникли '
+        'еще вопросы, я готов помочь!\n'
+        'Выберите одну из доступных опций в меню ниже:',
         reply_markup=kb_start()
     )

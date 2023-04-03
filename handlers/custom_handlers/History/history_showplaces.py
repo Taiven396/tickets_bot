@@ -23,10 +23,14 @@ async def showplaces_history(callback: types.CallbackQuery,
     """
     logger.info(f'\nПользователь: {callback.from_user.full_name},id: {callback.from_user.id}, запросил '
                 f'историю запросов достопримечательностей в {datetime.now()}')
-    await callback.message.answer('Собираю вашу историю запросов.')
+    await callback.message.answer('Выполняю поиск ваших запросов в базе данных')
     for search in history_showplace(user_id=callback.from_user.id):
         time.sleep(1)
         await callback.message.answer(search)
     await state.reset_state()
-    await callback.message.answer('Чем могу еще помочь?',
-                                  reply_markup=kb_start())
+    await callback.message.answer(
+        'Если у вас возникли еще вопросы, я готов помочь!\n'
+        'Выберите одну из доступных опций в меню ниже:',
+        reply_markup=kb_start()
+    )
+

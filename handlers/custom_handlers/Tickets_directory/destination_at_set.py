@@ -33,17 +33,19 @@ async def dialog_calendar_return_at(callback_query: CallbackQuery,
                       return_date=date):
             await state.update_data(return_at=date.strftime("%Y-%m-%d"))
             user_data = await state.get_data()
-            await callback_query.message.\
-                answer(f'Выбранная дата обратного рейса:\n'
-                      f'{user_data["return_at"]}')
-            await callback_query.message.\
-                answer('Рассматривать рейсы с пересадками?.',
-                      reply_markup=kb_yes_no())
+            await callback_query.answer(
+                f'Вы выбрали дату обратного рейса:'
+                f'\n{user_data["return_at"]}. '
+            )
+            await callback_query.message.answer(
+                'Хотели бы вы рассмотреть варианты рейсов с пересадками?',
+                reply_markup=kb_yes_no()
+            )
             await UserTripInfo.direct.set()
         else:
-            await callback_query.message.\
-                answer('Планируемая дата обратного '
-                      'рейса\nуказана неверно, '
-                      'попробуйте еще раз.',
-                      reply_markup=await DialogCalendar().start_calendar())
+            await callback_query.message.answer(
+                'Извините, но введенная дата обратного рейса некорректна.\n '
+                'Попробуйте выбрать другую дату, используя календарь ниже.',
+                reply_markup=await DialogCalendar().start_calendar()
+            )
             return None

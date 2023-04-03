@@ -15,6 +15,6 @@ async def find_show_places(callback: types.CallbackQuery) -> None:
     """
     await UserTripInfo.showplaces.set()
     await callback.message.answer(
-        'Введите город для поиска '
-        'достопримечательностей.'
+        'Пожалуйста, введите название города,\n'
+        'для поиска достопримечательностей.'
     )

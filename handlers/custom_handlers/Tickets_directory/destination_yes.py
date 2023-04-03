@@ -16,6 +16,8 @@ async def city_name_destination_yes(callback: types.CallbackQuery) -> None:
     нажатия инлайн кнопки
     """
     await UserTripInfo.departure_at.set()
-    await callback.message.answer("Выберите планируемую дату вылета",
-                                  reply_markup=await DialogCalendar().
-                                  start_calendar())
+    await callback.message.answer(
+        "Для поиска подходящих рейсов,\n"
+        "пожалуйста, выберите дату вылета.",
+                reply_markup=await DialogCalendar().start_calendar()
+    )

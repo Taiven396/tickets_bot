@@ -20,7 +20,9 @@ async def return_ticket(callback: types.CallbackQuery,
     :param state: FSMContext машина состояний
     """
     await UserTripInfo.return_at.set()
-    await callback.message.answer("Выберите планируемую дату обратного рейса",
-                                  reply_markup=await DialogCalendar()
-                                  .start_calendar())
+    await callback.message.answer(
+        "Для поиска подходящих рейсов,\n"
+        "пожалуйста, выберите дату обратного рейса.",
+                reply_markup=await DialogCalendar().start_calendar()
+    )
     await state.update_data(one_way=True)

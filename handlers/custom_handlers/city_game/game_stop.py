@@ -16,6 +16,11 @@ async def help(callback: types.CallbackQuery, state: FSMContext) -> None:
     :param state: (FSMContext) машина состояний
     """
     await state.reset_state()
-    await callback.message.answer('Спасибо за игру!')
-    await callback.message.answer('Чем могу еще помочь?',
-                                  reply_markup=kb_start())
+    await callback.message.answer(
+        'Спасибо за игру! Было приятно поиграть с вами.',
+    )
+    await callback.message.answer(
+        'Если у вас возникли еще вопросы, я готов помочь!\n'
+        'Выберите одну из доступных опций в меню ниже:',
+        reply_markup=kb_start()
+    )

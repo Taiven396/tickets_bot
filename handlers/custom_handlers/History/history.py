@@ -14,5 +14,6 @@ async def history_select(callback: types.CallbackQuery) -> None:
     нажатия инлайн кнопки
     """
     await UserTripInfo.history.set()
-    await callback.message.answer('Как историю запросов предоставить?',
+    await callback.message.answer('Пожалуйста, выберите, какую '
+                                  'именно\nисторию вы хотите запросить:',
                                   reply_markup=kb_history())

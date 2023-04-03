@@ -9,7 +9,6 @@ from loguru import logger
 from datetime import datetime
 
 
-
 @dp.callback_query_handler(state=UserTripInfo.history,
                            text='tickets_history')
 async def tickets_history(callback: types.CallbackQuery,
@@ -26,10 +25,14 @@ async def tickets_history(callback: types.CallbackQuery,
         f'id: {callback.from_user.id}, запросил '
         f'историю запросов билетов в {datetime.now()}'
     )
-    await callback.message.answer('Собираю вашу историю запросов.')
+    await callback.message.answer('Выполняю поиск ваших запросов в базе данных')
     for search in history(user_id=callback.from_user.id):
         time.sleep(1)
         await callback.message.answer(search)
     await state.reset_state()
-    await callback.message.answer('Чем могу еще помочь?',
-                                  reply_markup=kb_start())
+    await callback.message.answer(
+        'Если у вас возникли еще вопросы, я готов помочь!\n'
+        'Выберите одну из доступных опций в меню ниже:',
+        reply_markup=kb_start()
+    )
+

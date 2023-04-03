@@ -24,6 +24,7 @@ async def ask_departure_city_cheapest(callback: types.CallbackQuery,
         f'id: {callback.from_user.id}, начал поиск '
         f'самых дешёвых билетов в {datetime.now()}'
     )
-    await callback.message.answer('Введите город отправления.')
+    await callback.message.answer('Пожалуйста, введите город отправления.')
     await state.update_data(cheapest=True)
     await UserTripInfo.departure.set()
+

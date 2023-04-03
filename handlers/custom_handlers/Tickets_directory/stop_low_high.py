@@ -19,8 +19,7 @@ async def next_showplace(callback: types.CallbackQuery,
     :param state: (FSMContext) машина состояний
     """
     user_data = await state.get_data()
-    await add_to_db_tickets(data=user_data, user_id=callback.from_user.id)
     await UserTripInfo.showplaces.set()
-    await callback.message.answer(f'Хотите посмотреть достопримечательности'
-                                  f'города: {user_data["destination_city"]}',
+    await callback.message.answer(f'Хотите посмотреть достопримечательности\n'
+                                  f'города {user_data["destination_city"]}?',
                                   reply_markup=kb_after_ticket())

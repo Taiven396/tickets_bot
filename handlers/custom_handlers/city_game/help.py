@@ -29,28 +29,27 @@ async def help(callback: types.CallbackQuery,
         for city in data['city_in_game']:
             if city.lower().startswith(last_city_letter):
                 cur_city = city
-                data['city_in_game'].remove(city)
-                data['city_out'].append(city.title())
+                data['city_in_game'].remove(cur_city)
+                data['city_out'].append(cur_city.title())
                 break
         if not cur_city is None:
             await callback.message.answer(
-                f'Спешу на помощь!\n'
-                f'{city.title()}'
+                'С удовольствием помогу!\n'
+                f'{cur_city.title()}'
             )
-            await bot_answer_with_help(
-                getted_city=city,
-                state=state,
-                message=callback.message
-            )
-            return None
         else:
             await callback.message.answer(
-                f'Городов на букву '
-                f'{last_city_letter}'
-                f'больше нет.\nИгра окончена!'
+                f'Я не могу найти город на букву "{last_city_letter.upper()}".\n'
+                f'Кажется, игра окончена!'
             )
             await state.reset_state()
             await callback.message.answer(
-                'Чем еще могу помочь?',
+                'Если у вас возникли еще вопросы, я готов помочь!\n'
+                'Выберите одну из доступных опций в меню ниже:',
                 reply_markup=kb_start()
             )
+    await bot_answer_with_help(
+        getted_city=cur_city,
+        state=state,
+        message=callback.message
+    )

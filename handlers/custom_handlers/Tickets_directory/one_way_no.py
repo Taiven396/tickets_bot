@@ -16,6 +16,8 @@ async def next_step_direct(callback: types.CallbackQuery,
     """
     await state.update_data(one_way=False)
     await state.update_data(return_at='')
-    await callback.message.answer('Рассматривать рейсы с пересадками?.',
-                                  reply_markup=kb_yes_no())
+    await callback.message.answer(
+        'Хотели бы вы рассмотреть варианты рейсов с пересадками?',
+        reply_markup=kb_yes_no()
+    )
     await UserTripInfo.direct.set()

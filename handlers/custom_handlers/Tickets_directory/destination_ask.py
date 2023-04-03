@@ -20,16 +20,24 @@ async def city_name_destination_check(message: types.Message,
     info = get_city_name(message.text)
     user_data = await state.get_data()
     if info is None:
-        await message.reply('Такой город не найден, попробуйте еще раз.')
+        await message.answer(
+            'К сожалению, я не смог найти такой город. '
+            'Пожалуйста, убедитесь, что вы правильно ввели название города '
+            'без опечаток и сокращений, и попробуйте снова.'
+        )
         return None
     elif info["name"] == user_data["departure_city"]:
-        await message.answer('Город назначения и город отправления\n'
-                             'должны отличаться...')
+        await message.answer(
+            'Кажется, вы ввели один и тот же город дважды.\n'
+            'Пожалуйста, укажите разные города отправления и назначения.'
+        )
         return None
     else:
-        await message.answer(f'В базе найден город {info["name"]}, '
-                            f'вы имели ввиду его?',
-                            reply_markup=kb_yes_no())
+        await message.answer(
+            f'Найден город {info["name"]}.\n'
+            f'Это тот, который вы имели ввиду?',
+            reply_markup=kb_yes_no()
+        )
         await state.update_data(destination=info["code"])
         await state.update_data(destination_city=info["name"])
         await state.update_data(showplaces_city=info["name"])

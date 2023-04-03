@@ -19,11 +19,17 @@ async def city_name_departure_check(message: types.Message,
     """
     info = get_city_name(message.text)
     if info is None:
-        await message.reply('Такой город не найден, попробуйте еще раз.')
+        await message.answer(
+            'К сожалению, я не смог найти такой город. '
+            'Пожалуйста, убедитесь, что вы правильно ввели название города '
+            'без опечаток и сокращений, и попробуйте снова.'
+        )
         return None
     else:
-        await message.reply(f'В базе найден город {info["name"]}, '
-                            f'вы имели ввиду его?',
-                            reply_markup=kb_yes_no())
+        await message.answer(
+            f'Найден город {info["name"]}.\n'
+            f'Это тот, который вы имели ввиду?',
+            reply_markup=kb_yes_no()
+        )
         await state.update_data(departure=info["code"])
         await state.update_data(departure_city=info["name"])

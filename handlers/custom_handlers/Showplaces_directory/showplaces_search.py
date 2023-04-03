@@ -24,7 +24,9 @@ async def showplaces_search(callback: types.CallbackQuery,
     :param callback: CallbackQuery объект от нажатия инлайн кнопки
     :param state: FSMContex машина состояний
     """
-    await callback.message.answer('Выполняю поиск достопримечательностей.')
+    await callback.message.answer(
+        'Выполняю поиск достопримечательностей,\n'
+        'пожалуйста, подождите...')
     await callback.message.answer_sticker(r'CAACAgIAAxkBAAEIXCVk'
                                           r'I3g297l5AAE19fHmEquhl'
                                           r'MYIEcIAAq8lAAKbonBLuDnFfbteCGYvBA')
@@ -52,7 +54,11 @@ async def showplaces_search(callback: types.CallbackQuery,
         await callback.message.answer(next_previous(number=0, data=data),
                                       reply_markup=kb_next_previous(now_number=1,
                                                                     number_all=len(data)))
-        return
-    await callback.message.answer('Достопримечательности не найдены.\n'
-                                  'Чем могу еще помочь?', reply_markup=kb_start())
+        return None
+    await callback.message.answer(
+        'К сожалению, по вашему запросу ничего не найдено.\n'
+        'Если у вас возникли еще вопросы, я готов помочь!\n'
+        'Выберите одну из доступных опций в меню ниже:',
+        reply_markup=kb_start()
+    )
 
