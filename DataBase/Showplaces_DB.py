@@ -9,15 +9,16 @@ def history_showplace(user_id: int) -> str:
     :param user_id: int айди пользователя
     :return: str смоделированную строку с информацией о запросе
     """
-    search_param = Showplaces.select().limit(10).where(Showplaces.user_id == user_id).\
-        order_by(Showplaces.search_date.desc())
+    search_param = Showplaces.select().limit(10).where(
+        Showplaces.user_id == user_id).order_by(Showplaces.search_date.desc()
+                                                )
     all_search = search_param.dicts().execute()
     if len(all_search) == 0:
         yield 'Данных о запросах не найдено.'
     else:
         for request in all_search:
-            yield f'Дата поиска: {request["search_date"].strftime("%Y-%m-%d")}\n' \
-                  f'Город поиска: {request["city"]}\n'
+            yield (f'Дата поиска: {request["search_date"].strftime("%Y-%m-%d")}\n'
+                  f'Город поиска: {request["city"]}\n')
 
 async def add_to_db_showplaces(city: str, user_id: int) -> None:
     """

@@ -2,7 +2,6 @@ from aiogram.dispatcher import FSMContext
 from aiogram import types
 from loader import dp
 from FSM.FSM import UserTripInfo
-from keyboards.inline.game import kb_game
 from keyboards.inline.start import kb_start
 from handlers.custom_handlers.city_game.bot_answer_with_help \
     import bot_answer_with_help

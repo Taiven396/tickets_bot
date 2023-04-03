@@ -37,15 +37,15 @@ async def showplaces_search(callback: types.CallbackQuery,
                 f' в {datetime.now()}')
     await add_to_db_showplaces(city=user_data["showplaces_city"],
                                user_id=callback.from_user.id)
-    url = f'https://api.opentripmap.com/0.1/ru/places' \
-          f'/geoname?name={user_data["showplaces_city"]}' \
-          f'&apikey={config.SHOWPLACES}'
+    url = (f'https://api.opentripmap.com/0.1/ru/places'
+          f'/geoname?name={user_data["showplaces_city"]}'
+          f'&apikey={config.SHOWPLACES}')
     data = requests.get(url).json()
 
-    url = f'https://api.opentripmap.com/0.1/ru/places/' \
-          f'radius?radius=20000&lon={data["lon"]}&lat=' \
-          f'{data["lat"]}&rate=3&apikey=' \
-          f'{config.SHOWPLACES}'
+    url = (f'https://api.opentripmap.com/0.1/ru/places/'
+          f'radius?radius=20000&lon={data["lon"]}&lat='
+          f'{data["lat"]}&rate=3&apikey='
+          f'{config.SHOWPLACES}')
     data = requests.get(url).json()['features']
     await state.update_data(showplaces_data=data)
     await state.update_data(now_number=0)
