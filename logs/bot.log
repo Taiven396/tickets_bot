@@ -1,0 +1,330 @@
+2023-04-02 19:29:26.923 | INFO     | handlers.custom_handlers.send_welcome:send_welcome:16 - 
+Пользователь: Андрей ,id: 449192198, начал работу с ботом в 2023-04-02 19:29:26.923225, написав сообщение re
+2023-04-02 19:31:43.005 | INFO     | handlers.custom_handlers.city_game.lets_play:lest_play:21 - 
+Пользователь: Андрей, id: 449192198, начал игру "Города" в 2023-04-02 19:31:43.004584
+2023-04-02 19:41:44.368 | INFO     | handlers.custom_handlers.Tickets_directory.cheapest:ask_departure_city_cheapest:22 - 
+Пользователь: Андрей, id: 449192198, начал поиск самых дешёвых билетов в 2023-04-02 19:41:44.368920
+2023-04-02 19:43:05.345 | INFO     | handlers.custom_handlers.History.history_tickets:tickets_history:24 - 
+Пользователь: Андрей, id: 449192198, запросил историю запросов билетов в 2023-04-02 19:43:05.345031
+2023-04-02 19:44:56.931 | INFO     | handlers.custom_handlers.History.history_tickets:tickets_history:24 - 
+Пользователь: Андрей, id: 449192198, запросил историю запросов билетов в 2023-04-02 19:44:56.931660
+2023-04-02 19:48:15.363 | INFO     | handlers.custom_handlers.Showplaces_directory.showplaces_search:showplaces_search:32 - 
+Пользователь: Андрей,id: 449192198, начал поиск достопримечательностей в городе Rome в 2023-04-02 19:48:15.363106
+2023-04-02 19:54:38.023 | INFO     | handlers.custom_handlers.send_welcome:send_welcome:16 - 
+Пользователь: Андрей ,id: 449192198, начал работу с ботом в 2023-04-02 19:54:38.022769, написав сообщение ку
+2023-04-02 19:54:38.303 | INFO     | handlers.custom_handlers.send_welcome:send_welcome:16 - 
+Пользователь: Андрюша Ку ку ша ,id: 5180211547, начал работу с ботом в 2023-04-02 19:54:38.303141, написав сообщение Привет
+2023-04-02 19:54:52.532 | INFO     | handlers.custom_handlers.city_game.lets_play:lest_play:21 - 
+Пользователь: Андрей, id: 449192198, начал игру "Города" в 2023-04-02 19:54:52.532518
+2023-04-02 19:54:52.898 | INFO     | handlers.custom_handlers.city_game.lets_play:lest_play:21 - 
+Пользователь: Андрюша Ку ку ша, id: 5180211547, начал игру "Города" в 2023-04-02 19:54:52.898213
+2023-04-02 19:55:35.067 | INFO     | handlers.custom_handlers.Showplaces_directory.showplaces_search:showplaces_search:32 - 
+Пользователь: Андрюша Ку ку ша,id: 5180211547, начал поиск достопримечательностей в городе Paris в 2023-04-02 19:55:35.067328
+2023-04-02 19:55:36.854 | INFO     | handlers.custom_handlers.Showplaces_directory.showplaces_search:showplaces_search:32 - 
+Пользователь: Андрей,id: 449192198, начал поиск достопримечательностей в городе Milan в 2023-04-02 19:55:36.854924
+2023-04-02 19:55:51.954 | INFO     | handlers.reload:cmd_reload:20 - 
+Пользователь: Андрей, id: 449192198, выполнил перезагрузку,пользователь был в состоянии UserTripInfo:showplaces_output,дата: 2023-04-02 19:55:51.954340
+2023-04-02 20:00:23.288 | INFO     | handlers.custom_handlers.send_welcome:send_welcome:16 - 
+Пользователь: Андрей ,id: 449192198, начал работу с ботом в 2023-04-02 20:00:23.288448, написав сообщение ку
+2023-04-02 20:00:24.902 | INFO     | handlers.custom_handlers.Tickets_directory.list_of_tickets:ask_departure_city_list:19 - 
+Пользователь: Андрей,id: 449192198, начал поиск списка билетов в 2023-04-02 20:00:24.902508
+2023-04-02 20:00:45.824 | ERROR    | handlers.custom_handlers.Tickets_directory.sorting_low:tickets_list_low:51 - 
+При поиске списка билетов, сортировка 'low', у пользователя Андрей, id: 449192198, разница даты вылетаи даты обратного вылета превысила 30 дней
+Traceback (most recent call last):
+
+  File "C:\Users\Мезенцев Андрей\Desktop\Skillbox\python_basic_diploma\main.py", line 7, in <module>
+    executor.start_polling(dp, skip_updates=True, on_startup=on_startup())
+    │        │             │                                 └ <function on_startup at 0x0000018DC4A9F7E0>
+    │        │             └ <aiogram.dispatcher.dispatcher.Dispatcher object at 0x0000018DC48BDE10>
+    │        └ <function start_polling at 0x0000018DC49F3380>
+    └ <module 'aiogram.utils.executor' from 'C:\\Users\\Мезенцев Андрей\\Desktop\\Skillbox\\python_basic_diploma\\env\\Lib\\site-pa...
+
+  File "C:\Users\Мезенцев Андрей\Desktop\Skillbox\python_basic_diploma\env\Lib\site-packages\aiogram\utils\executor.py", line 45, in start_polling
+    executor.start_polling(
+    │        └ <function Executor.start_polling at 0x0000018DC4A8EDE0>
+    └ <aiogram.utils.executor.Executor object at 0x0000018DC48C92D0>
+  File "C:\Users\Мезенцев Андрей\Desktop\Skillbox\python_basic_diploma\env\Lib\site-packages\aiogram\utils\executor.py", line 323, in start_polling
+    loop.run_forever()
+    │    └ <function ProactorEventLoop.run_forever at 0x0000018DC2EC37E0>
+    └ <ProactorEventLoop running=True closed=False debug=False>
+  File "C:\Python311\Lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Python311\Lib\asyncio\base_events.py", line 607, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x0000018DC2DF65C0>
+    └ <ProactorEventLoop running=True closed=False debug=False>
+  File "C:\Python311\Lib\asyncio\base_events.py", line 1922, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x0000018DC2D3CC20>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "C:\Python311\Lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "C:\Users\Мезенцев Андрей\Desktop\Skillbox\python_basic_diploma\env\Lib\site-packages\aiogram\dispatcher\handler.py", line 117, in notify
+    response = await handler_obj.handler(*args, **partial_data)
+                     │           │        │       └ {}
+                     │           │        └ (<Update {"update_id": 232459171, "callback_query": {"id": "1929265801225939420", "from": {"id": 449192198, "is_bot": false, ...
+                     │           └ <bound method Dispatcher.process_update of <aiogram.dispatcher.dispatcher.Dispatcher object at 0x0000018DC48BDE10>>
+                     └ Handler.HandlerObj(handler=<bound method Dispatcher.process_update of <aiogram.dispatcher.dispatcher.Dispatcher object at 0x0...
+  File "C:\Users\Мезенцев Андрей\Desktop\Skillbox\python_basic_diploma\env\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 283, in process_update
+    return await self.callback_query_handlers.notify(update.callback_query)
+                 │    │                       │      │      └ <aiogram.types.fields.Field object at 0x0000018DC3D2D9D0>
+                 │    │                       │      └ <Update {"update_id": 232459171, "callback_query": {"id": "1929265801225939420", "from": {"id": 449192198, "is_bot": false, "...
+                 │    │                       └ <function Handler.notify at 0x0000018DC49C3420>
+                 │    └ <aiogram.dispatcher.handler.Handler object at 0x0000018DC4AAB6D0>
+                 └ <aiogram.dispatcher.dispatcher.Dispatcher object at 0x0000018DC48BDE10>
+  File "C:\Users\Мезенцев Андрей\Desktop\Skillbox\python_basic_diploma\env\Lib\site-packages\aiogram\dispatcher\handler.py", line 117, in notify
+    response = await handler_obj.handler(*args, **partial_data)
+                     │           │        │       └ {'state': <aiogram.dispatcher.storage.FSMContext object at 0x0000018DC5399450>}
+                     │           │        └ (<CallbackQuery {"id": "1929265801225939420", "from": {"id": 449192198, "is_bot": false, "first_name": "Андрей", "language_co...
+                     │           └ <function tickets_list_low at 0x0000018DC4E04A40>
+                     └ Handler.HandlerObj(handler=<function tickets_list_low at 0x0000018DC4E04A40>, spec=FullArgSpec(args=['callback', 'state'], va...
+
+> File "C:\Users\Мезенцев Андрей\Desktop\Skillbox\python_basic_diploma\handlers\custom_handlers\Tickets_directory\sorting_low.py", line 41, in tickets_list_low
+    if len(data['list_ticket']) > 0:
+           └ <aiogram.dispatcher.storage.FSMContextProxy object at 0x0000018DC54AC890>
+
+TypeError: object of type 'NoneType' has no len()
+2023-04-02 20:01:46.008 | INFO     | handlers.custom_handlers.city_game.lets_play:lest_play:21 - 
+Пользователь: Андрей, id: 449192198, начал игру "Города" в 2023-04-02 20:01:46.008959
+2023-04-02 20:28:25.497 | INFO     | handlers.custom_handlers.send_welcome:send_welcome:16 - 
+Пользователь: Андрей ,id: 449192198, начал работу с ботом в 2023-04-02 20:28:25.497716, написав сообщение re
+2023-04-02 20:41:30.678 | INFO     | handlers.custom_handlers.city_game.lets_play:lest_play:21 - 
+Пользователь: Андрей, id: 449192198, начал игру "Города" в 2023-04-02 20:41:30.678424
+2023-04-02 20:49:32.480 | INFO     | handlers.custom_handlers.send_welcome:send_welcome:16 - 
+Пользователь: Иван ,id: 1037118008, начал работу с ботом в 2023-04-02 20:49:32.480363, написав сообщение /start
+2023-04-02 20:49:36.977 | INFO     | handlers.custom_handlers.Tickets_directory.cheapest:ask_departure_city_cheapest:22 - 
+Пользователь: Иван, id: 1037118008, начал поиск самых дешёвых билетов в 2023-04-02 20:49:36.977015
+2023-04-02 20:51:04.414 | INFO     | handlers.custom_handlers.Showplaces_directory.showplaces_search:showplaces_search:32 - 
+Пользователь: Иван,id: 1037118008, начал поиск достопримечательностей в городе Minsk в 2023-04-02 20:51:04.414480
+2023-04-02 20:52:17.906 | INFO     | handlers.custom_handlers.Tickets_directory.list_of_tickets:ask_departure_city_list:19 - 
+Пользователь: Иван,id: 1037118008, начал поиск списка билетов в 2023-04-02 20:52:17.906711
+2023-04-02 21:27:33.009 | INFO     | handlers.custom_handlers.send_welcome:send_welcome:16 - 
+Пользователь: Gennadii ,id: 1731235073, начал работу с ботом в 2023-04-02 21:27:33.009729, написав сообщение /start
+2023-04-02 21:28:55.237 | INFO     | handlers.custom_handlers.city_game.lets_play:lest_play:21 - 
+Пользователь: Gennadii, id: 1731235073, начал игру "Города" в 2023-04-02 21:28:55.237830
+2023-04-02 21:32:32.535 | INFO     | handlers.custom_handlers.send_welcome:send_welcome:16 - 
+Пользователь: Gennadii ,id: 1731235073, начал работу с ботом в 2023-04-02 21:32:32.535232, написав сообщение Какой товар самый ходовой в еаэс из Китая
+2023-04-02 21:40:35.532 | INFO     | handlers.custom_handlers.Showplaces_directory.showplaces_search:showplaces_search:32 - 
+Пользователь: Андрей,id: 449192198, начал поиск достопримечательностей в городе Saint Petersburg в 2023-04-02 21:40:35.532416
+2023-04-02 21:42:57.968 | INFO     | handlers.custom_handlers.Tickets_directory.list_of_tickets:ask_departure_city_list:19 - 
+Пользователь: Андрей,id: 449192198, начал поиск списка билетов в 2023-04-02 21:42:57.968849
+2023-04-02 21:44:42.383 | INFO     | handlers.custom_handlers.Showplaces_directory.showplaces_search:showplaces_search:32 - 
+Пользователь: Андрей,id: 449192198, начал поиск достопримечательностей в городе Male в 2023-04-02 21:44:42.383732
+2023-04-03 03:19:56.462 | INFO     | handlers.custom_handlers.send_welcome:send_welcome:16 - 
+Пользователь: Андрей ,id: 449192198, начал работу с ботом в 2023-04-03 03:19:56.461649, написав сообщение ку
+2023-04-03 03:19:57.763 | INFO     | handlers.custom_handlers.city_game.lets_play:lest_play:21 - 
+Пользователь: Андрей, id: 449192198, начал игру "Города" в 2023-04-03 03:19:57.763637
+2023-04-03 03:24:51.959 | INFO     | handlers.custom_handlers.send_welcome:send_welcome:16 - 
+Пользователь: Андрей ,id: 449192198, начал работу с ботом в 2023-04-03 03:24:51.959494, написав сообщение re
+2023-04-03 03:24:53.399 | INFO     | handlers.custom_handlers.city_game.lets_play:lest_play:21 - 
+Пользователь: Андрей, id: 449192198, начал игру "Города" в 2023-04-03 03:24:53.399911
+2023-04-03 03:33:41.089 | INFO     | handlers.custom_handlers.send_welcome:send_welcome:16 - 
+Пользователь: Андрей ,id: 449192198, начал работу с ботом в 2023-04-03 03:33:41.089848, написав сообщение re
+2023-04-03 03:33:43.468 | INFO     | handlers.custom_handlers.city_game.lets_play:lest_play:21 - 
+Пользователь: Андрей, id: 449192198, начал игру "Города" в 2023-04-03 03:33:43.468097
+2023-04-03 03:38:39.019 | INFO     | handlers.custom_handlers.send_welcome:send_welcome:16 - 
+Пользователь: Андрей ,id: 449192198, начал работу с ботом в 2023-04-03 03:38:39.019339, написав сообщение re
+2023-04-03 03:38:40.388 | INFO     | handlers.custom_handlers.city_game.lets_play:lest_play:21 - 
+Пользователь: Андрей, id: 449192198, начал игру "Города" в 2023-04-03 03:38:40.388798
+2023-04-03 03:42:23.802 | INFO     | handlers.custom_handlers.send_welcome:send_welcome:16 - 
+Пользователь: Андрей ,id: 449192198, начал работу с ботом в 2023-04-03 03:42:23.802979, написав сообщение re
+2023-04-03 03:42:25.046 | INFO     | handlers.custom_handlers.city_game.lets_play:lest_play:21 - 
+Пользователь: Андрей, id: 449192198, начал игру "Города" в 2023-04-03 03:42:25.046138
+2023-04-03 16:38:49.571 | INFO     | handlers.custom_handlers.send_welcome:send_welcome:16 - 
+Пользователь: Андрей ,id: 449192198, начал работу с ботом в 2023-04-03 16:38:49.571727, написав сообщение Привет
+2023-04-03 17:41:55.569 | INFO     | handlers.custom_handlers.send_welcome:send_welcome:16 - 
+Пользователь: Андрей ,id: 449192198, начал работу с ботом в 2023-04-03 17:41:55.569103, написав сообщение пп
+2023-04-03 17:42:29.458 | INFO     | handlers.custom_handlers.city_game.lets_play:lest_play:21 - 
+Пользователь: Андрей, id: 449192198, начал игру "Города" в 2023-04-03 17:42:29.458586
+2023-04-03 17:46:49.225 | INFO     | handlers.custom_handlers.send_welcome:send_welcome:16 - 
+Пользователь: Андрей ,id: 449192198, начал работу с ботом в 2023-04-03 17:46:49.225076, написав сообщение ку
+2023-04-03 17:46:50.947 | INFO     | handlers.custom_handlers.city_game.lets_play:lest_play:21 - 
+Пользователь: Андрей, id: 449192198, начал игру "Города" в 2023-04-03 17:46:50.947554
+2023-04-03 17:52:50.121 | INFO     | handlers.custom_handlers.send_welcome:send_welcome:16 - 
+Пользователь: Андрей ,id: 449192198, начал работу с ботом в 2023-04-03 17:52:50.121852, написав сообщение ннннннннннннннннннннннннннннн
+2023-04-03 17:52:50.390 | INFO     | handlers.custom_handlers.send_welcome:send_welcome:16 - 
+Пользователь: Андрей ,id: 449192198, начал работу с ботом в 2023-04-03 17:52:50.390192, написав сообщение re
+2023-04-03 17:52:56.896 | INFO     | handlers.custom_handlers.city_game.lets_play:lest_play:21 - 
+Пользователь: Андрей, id: 449192198, начал игру "Города" в 2023-04-03 17:52:56.896556
+2023-04-03 17:56:36.131 | INFO     | handlers.custom_handlers.send_welcome:send_welcome:16 - 
+Пользователь: Андрей ,id: 449192198, начал работу с ботом в 2023-04-03 17:56:36.131540, написав сообщение re
+2023-04-03 17:56:37.911 | INFO     | handlers.custom_handlers.city_game.lets_play:lest_play:21 - 
+Пользователь: Андрей, id: 449192198, начал игру "Города" в 2023-04-03 17:56:37.911714
+2023-04-03 17:58:09.148 | INFO     | handlers.custom_handlers.send_welcome:send_welcome:16 - 
+Пользователь: Андрей ,id: 449192198, начал работу с ботом в 2023-04-03 17:58:09.148557, написав сообщение re
+2023-04-03 17:58:11.510 | INFO     | handlers.custom_handlers.city_game.lets_play:lest_play:21 - 
+Пользователь: Андрей, id: 449192198, начал игру "Города" в 2023-04-03 17:58:11.510696
+2023-04-03 18:08:39.491 | INFO     | handlers.custom_handlers.Tickets_directory.cheapest:ask_departure_city_cheapest:22 - 
+Пользователь: Андрей, id: 449192198, начал поиск самых дешёвых билетов в 2023-04-03 18:08:39.491048
+2023-04-03 18:09:29.519 | INFO     | handlers.custom_handlers.Showplaces_directory.showplaces_search:showplaces_search:34 - 
+Пользователь: Андрей,id: 449192198, начал поиск достопримечательностей в городе Paris в 2023-04-03 18:09:29.519846
+2023-04-03 18:09:45.139 | INFO     | handlers.custom_handlers.Tickets_directory.list_of_tickets:ask_departure_city_list:19 - 
+Пользователь: Андрей,id: 449192198, начал поиск списка билетов в 2023-04-03 18:09:45.139048
+2023-04-03 18:10:29.384 | INFO     | handlers.custom_handlers.Tickets_directory.list_of_tickets:ask_departure_city_list:19 - 
+Пользователь: Андрей,id: 449192198, начал поиск списка билетов в 2023-04-03 18:10:29.384061
+2023-04-03 18:12:37.165 | INFO     | handlers.reload:cmd_reload:20 - 
+Пользователь: Андрей, id: 449192198, выполнил перезагрузку,пользователь был в состоянии UserTripInfo:destination,дата: 2023-04-03 18:12:37.165200
+2023-04-03 18:12:38.676 | INFO     | handlers.custom_handlers.send_welcome:send_welcome:16 - 
+Пользователь: Андрей ,id: 449192198, начал работу с ботом в 2023-04-03 18:12:38.675955, написав сообщение ку
+2023-04-03 18:12:40.828 | INFO     | handlers.custom_handlers.Tickets_directory.list_of_tickets:ask_departure_city_list:19 - 
+Пользователь: Андрей,id: 449192198, начал поиск списка билетов в 2023-04-03 18:12:40.828807
+2023-04-03 18:14:01.271 | INFO     | handlers.custom_handlers.Tickets_directory.list_of_tickets:ask_departure_city_list:19 - 
+Пользователь: Андрей,id: 449192198, начал поиск списка билетов в 2023-04-03 18:14:01.271549
+2023-04-03 18:14:41.828 | INFO     | handlers.custom_handlers.History.history_tickets:tickets_history:23 - 
+Пользователь: Андрей, id: 449192198, запросил историю запросов билетов в 2023-04-03 18:14:41.828068
+2023-04-03 19:00:42.591 | INFO     | handlers.custom_handlers.send_welcome:send_welcome:16 - 
+Пользователь: Андрей ,id: 449192198, начал работу с ботом в 2023-04-03 19:00:42.591428, написав сообщение Ку
+2023-04-03 19:00:42.600 | INFO     | handlers.custom_handlers.send_welcome:send_welcome:16 - 
+Пользователь: Андрей ,id: 449192198, начал работу с ботом в 2023-04-03 19:00:42.600630, написав сообщение /start
+2023-04-03 19:01:31.042 | INFO     | handlers.custom_handlers.Showplaces_directory.showplaces_search:showplaces_search:34 - 
+Пользователь: Андрей,id: 449192198, начал поиск достопримечательностей в городе Denver в 2023-04-03 19:01:31.042300
+2023-04-03 19:07:31.121 | INFO     | handlers.custom_handlers.send_welcome:send_welcome:16 - 
+Пользователь: Андрей ,id: 449192198, начал работу с ботом в 2023-04-03 19:07:31.121613, написав сообщение Привет
+2023-04-03 19:07:38.188 | INFO     | handlers.custom_handlers.Tickets_directory.cheapest:ask_departure_city_cheapest:22 - 
+Пользователь: Андрей, id: 449192198, начал поиск самых дешёвых билетов в 2023-04-03 19:07:38.188185
+2023-04-03 19:08:29.386 | INFO     | handlers.reload:cmd_reload:20 - 
+Пользователь: Андрей, id: 449192198, выполнил перезагрузку,пользователь был в состоянии UserTripInfo:direct,дата: 2023-04-03 19:08:29.386742
+2023-04-03 19:09:16.302 | INFO     | handlers.custom_handlers.send_welcome:send_welcome:16 - 
+Пользователь: Андрей ,id: 449192198, начал работу с ботом в 2023-04-03 19:09:16.302463, написав сообщение Привет
+2023-04-03 19:09:20.581 | INFO     | handlers.custom_handlers.Tickets_directory.cheapest:ask_departure_city_cheapest:22 - 
+Пользователь: Андрей, id: 449192198, начал поиск самых дешёвых билетов в 2023-04-03 19:09:20.581641
+2023-04-03 19:09:41.360 | INFO     | handlers.reload:cmd_reload:20 - 
+Пользователь: Андрей, id: 449192198, выполнил перезагрузку,пользователь был в состоянии UserTripInfo:destination,дата: 2023-04-03 19:09:41.360308
+2023-04-03 19:11:30.533 | INFO     | handlers.custom_handlers.send_welcome:send_welcome:16 - 
+Пользователь: Андрей ,id: 449192198, начал работу с ботом в 2023-04-03 19:11:30.533909, написав сообщение Привет
+2023-04-03 19:11:35.244 | INFO     | handlers.custom_handlers.Tickets_directory.cheapest:ask_departure_city_cheapest:22 - 
+Пользователь: Андрей, id: 449192198, начал поиск самых дешёвых билетов в 2023-04-03 19:11:35.244587
+2023-04-03 19:12:19.369 | INFO     | handlers.custom_handlers.Showplaces_directory.showplaces_search:showplaces_search:34 - 
+Пользователь: Андрей,id: 449192198, начал поиск достопримечательностей в городе London в 2023-04-03 19:12:19.369113
+2023-04-03 19:15:22.631 | INFO     | handlers.custom_handlers.send_welcome:send_welcome:16 - 
+Пользователь: Андрей ,id: 449192198, начал работу с ботом в 2023-04-03 19:15:22.631377, написав сообщение привет
+2023-04-03 19:15:27.908 | INFO     | handlers.custom_handlers.Tickets_directory.cheapest:ask_departure_city_cheapest:22 - 
+Пользователь: Андрей, id: 449192198, начал поиск самых дешёвых билетов в 2023-04-03 19:15:27.908927
+2023-04-03 19:16:25.415 | INFO     | handlers.custom_handlers.Showplaces_directory.showplaces_search:showplaces_search:34 - 
+Пользователь: Андрей,id: 449192198, начал поиск достопримечательностей в городе London в 2023-04-03 19:16:25.415965
+2023-04-03 19:16:48.720 | INFO     | handlers.custom_handlers.Tickets_directory.list_of_tickets:ask_departure_city_list:19 - 
+Пользователь: Андрей,id: 449192198, начал поиск списка билетов в 2023-04-03 19:16:48.720439
+2023-04-03 19:17:20.560 | INFO     | handlers.custom_handlers.Tickets_directory.list_of_tickets:ask_departure_city_list:19 - 
+Пользователь: Андрей,id: 449192198, начал поиск списка билетов в 2023-04-03 19:17:20.560620
+2023-04-03 19:18:10.894 | INFO     | handlers.custom_handlers.History.history_tickets:tickets_history:23 - 
+Пользователь: Андрей, id: 449192198, запросил историю запросов билетов в 2023-04-03 19:18:10.894278
+2023-04-03 19:18:27.849 | INFO     | handlers.custom_handlers.History.history_showplaces:showplaces_history:24 - 
+Пользователь: Андрей,id: 449192198, запросил историю запросов достопримечательностей в 2023-04-03 19:18:27.849693
+2023-04-03 19:18:49.714 | INFO     | handlers.custom_handlers.Showplaces_directory.showplaces_search:showplaces_search:34 - 
+Пользователь: Андрей,id: 449192198, начал поиск достопримечательностей в городе Sydney в 2023-04-03 19:18:49.714056
+2023-04-03 19:19:11.150 | INFO     | handlers.custom_handlers.Showplaces_directory.showplaces_search:showplaces_search:34 - 
+Пользователь: Андрей,id: 449192198, начал поиск достопримечательностей в городе Moscow в 2023-04-03 19:19:11.150671
+2023-04-03 19:19:22.458 | INFO     | handlers.custom_handlers.city_game.lets_play:lest_play:21 - 
+Пользователь: Андрей, id: 449192198, начал игру "Города" в 2023-04-03 19:19:22.458036
+2023-04-03 19:28:44.016 | INFO     | handlers.custom_handlers.send_welcome:send_welcome:16 - 
+Пользователь: Андрей ,id: 449192198, начал работу с ботом в 2023-04-03 19:28:44.016046, написав сообщение Привет
+2023-04-03 19:28:46.988 | INFO     | handlers.custom_handlers.Tickets_directory.cheapest:ask_departure_city_cheapest:22 - 
+Пользователь: Андрей, id: 449192198, начал поиск самых дешёвых билетов в 2023-04-03 19:28:46.988994
+2023-04-03 19:29:16.387 | INFO     | handlers.reload:cmd_reload:20 - 
+Пользователь: Андрей, id: 449192198, выполнил перезагрузку,пользователь был в состоянии UserTripInfo:departure_at,дата: 2023-04-03 19:29:16.387442
+2023-04-03 19:42:06.571 | INFO     | handlers.custom_handlers.send_welcome:send_welcome:16 - 
+Пользователь: Андрей ,id: 449192198, начал работу с ботом в 2023-04-03 19:42:06.571002, написав сообщение /start
+2023-04-03 19:42:10.402 | INFO     | handlers.custom_handlers.Tickets_directory.list_of_tickets:ask_departure_city_list:19 - 
+Пользователь: Андрей,id: 449192198, начал поиск списка билетов в 2023-04-03 19:42:10.402814
+2023-04-03 19:51:39.826 | INFO     | handlers.custom_handlers.send_welcome:send_welcome:16 - 
+Пользователь: Андрей ,id: 449192198, начал работу с ботом в 2023-04-03 19:51:39.825743, написав сообщение re
+2023-04-03 19:51:42.030 | INFO     | handlers.custom_handlers.Tickets_directory.cheapest:ask_departure_city_cheapest:22 - 
+Пользователь: Андрей, id: 449192198, начал поиск самых дешёвых билетов в 2023-04-03 19:51:42.030044
+2023-04-03 19:56:31.860 | INFO     | handlers.custom_handlers.send_welcome:send_welcome:16 - 
+Пользователь: Андрей ,id: 449192198, начал работу с ботом в 2023-04-03 19:56:31.860402, написав сообщение re
+2023-04-03 19:56:33.938 | INFO     | handlers.custom_handlers.Tickets_directory.cheapest:ask_departure_city_cheapest:22 - 
+Пользователь: Андрей, id: 449192198, начал поиск самых дешёвых билетов в 2023-04-03 19:56:33.938446
+2023-04-03 19:57:12.348 | INFO     | handlers.custom_handlers.Showplaces_directory.showplaces_search:showplaces_search:34 - 
+Пользователь: Андрей,id: 449192198, начал поиск достопримечательностей в городе Phuket в 2023-04-03 19:57:12.347953
+2023-04-03 19:57:32.126 | INFO     | handlers.custom_handlers.Tickets_directory.list_of_tickets:ask_departure_city_list:19 - 
+Пользователь: Андрей,id: 449192198, начал поиск списка билетов в 2023-04-03 19:57:32.126491
+2023-04-03 19:58:16.239 | INFO     | handlers.reload:cmd_reload:20 - 
+Пользователь: Андрей, id: 449192198, выполнил перезагрузку,пользователь был в состоянии None,дата: 2023-04-03 19:58:16.239768
+2023-04-03 20:24:40.717 | INFO     | handlers.custom_handlers.send_welcome:send_welcome:16 - 
+Пользователь: Андрей ,id: 449192198, начал работу с ботом в 2023-04-03 20:24:40.717066, написав сообщение о
+2023-04-03 20:26:10.151 | INFO     | handlers.custom_handlers.send_welcome:send_welcome:16 - 
+Пользователь: Андрей ,id: 449192198, начал работу с ботом в 2023-04-03 20:26:10.151962, написав сообщение Привет
+2023-04-03 20:28:44.272 | INFO     | handlers.custom_handlers.send_welcome:send_welcome:16 - 
+Пользователь: Андрей ,id: 449192198, начал работу с ботом в 2023-04-03 20:28:44.272075, написав сообщение Привет
+2023-04-03 20:28:47.230 | INFO     | handlers.custom_handlers.Tickets_directory.cheapest:ask_departure_city_cheapest:22 - 
+Пользователь: Андрей, id: 449192198, начал поиск самых дешёвых билетов в 2023-04-03 20:28:47.230421
+2023-04-03 20:29:31.887 | INFO     | handlers.custom_handlers.Showplaces_directory.showplaces_search:showplaces_search:34 - 
+Пользователь: Андрей,id: 449192198, начал поиск достопримечательностей в городе Barcelona в 2023-04-03 20:29:31.887760
+2023-04-03 20:29:46.417 | INFO     | handlers.custom_handlers.Tickets_directory.list_of_tickets:ask_departure_city_list:19 - 
+Пользователь: Андрей,id: 449192198, начал поиск списка билетов в 2023-04-03 20:29:46.417065
+2023-04-03 20:30:28.626 | INFO     | handlers.custom_handlers.Tickets_directory.list_of_tickets:ask_departure_city_list:19 - 
+Пользователь: Андрей,id: 449192198, начал поиск списка билетов в 2023-04-03 20:30:28.626280
+2023-04-03 20:30:53.302 | INFO     | handlers.custom_handlers.Tickets_directory.list_of_tickets:ask_departure_city_list:19 - 
+Пользователь: Андрей,id: 449192198, начал поиск списка билетов в 2023-04-03 20:30:53.302175
+2023-04-03 20:31:19.708 | INFO     | handlers.custom_handlers.Tickets_directory.list_of_tickets:ask_departure_city_list:19 - 
+Пользователь: Андрей,id: 449192198, начал поиск списка билетов в 2023-04-03 20:31:19.708072
+2023-04-03 20:31:56.948 | INFO     | handlers.custom_handlers.Tickets_directory.list_of_tickets:ask_departure_city_list:19 - 
+Пользователь: Андрей,id: 449192198, начал поиск списка билетов в 2023-04-03 20:31:56.948063
+2023-04-03 20:32:57.013 | INFO     | handlers.custom_handlers.send_welcome:send_welcome:16 - 
+Пользователь: Андрей ,id: 449192198, начал работу с ботом в 2023-04-03 20:32:57.013594, написав сообщение Привет
+2023-04-03 20:33:00.424 | INFO     | handlers.custom_handlers.Tickets_directory.cheapest:ask_departure_city_cheapest:22 - 
+Пользователь: Андрей, id: 449192198, начал поиск самых дешёвых билетов в 2023-04-03 20:33:00.424852
+2023-04-03 20:33:33.585 | INFO     | handlers.custom_handlers.Showplaces_directory.showplaces_search:showplaces_search:34 - 
+Пользователь: Андрей,id: 449192198, начал поиск достопримечательностей в городе Paris в 2023-04-03 20:33:33.585436
+2023-04-03 20:33:46.914 | INFO     | handlers.custom_handlers.Tickets_directory.cheapest:ask_departure_city_cheapest:22 - 
+Пользователь: Андрей, id: 449192198, начал поиск самых дешёвых билетов в 2023-04-03 20:33:46.914848
+2023-04-03 20:34:25.028 | INFO     | handlers.custom_handlers.Tickets_directory.list_of_tickets:ask_departure_city_list:19 - 
+Пользователь: Андрей,id: 449192198, начал поиск списка билетов в 2023-04-03 20:34:25.028115
+2023-04-03 20:39:05.585 | INFO     | handlers.custom_handlers.Tickets_directory.list_of_tickets:ask_departure_city_list:19 - 
+Пользователь: Андрей,id: 449192198, начал поиск списка билетов в 2023-04-03 20:39:05.585032
+2023-04-03 20:39:56.944 | INFO     | handlers.reload:cmd_reload:20 - 
+Пользователь: Андрей, id: 449192198, выполнил перезагрузку,пользователь был в состоянии UserTripInfo:showplaces,дата: 2023-04-03 20:39:56.943507
+2023-04-03 20:40:13.748 | INFO     | handlers.custom_handlers.send_welcome:send_welcome:16 - 
+Пользователь: Андрей ,id: 449192198, начал работу с ботом в 2023-04-03 20:40:13.748416, написав сообщение Привет
+2023-04-03 20:40:16.910 | INFO     | handlers.custom_handlers.Tickets_directory.cheapest:ask_departure_city_cheapest:22 - 
+Пользователь: Андрей, id: 449192198, начал поиск самых дешёвых билетов в 2023-04-03 20:40:16.910074
+2023-04-03 20:40:58.397 | INFO     | handlers.custom_handlers.Showplaces_directory.showplaces_search:showplaces_search:34 - 
+Пользователь: Андрей,id: 449192198, начал поиск достопримечательностей в городе London в 2023-04-03 20:40:58.397668
+2023-04-03 20:41:16.253 | INFO     | handlers.custom_handlers.Tickets_directory.cheapest:ask_departure_city_cheapest:22 - 
+Пользователь: Андрей, id: 449192198, начал поиск самых дешёвых билетов в 2023-04-03 20:41:16.253183
+2023-04-03 20:41:34.836 | INFO     | handlers.reload:cmd_reload:20 - 
+Пользователь: Андрей, id: 449192198, выполнил перезагрузку,пользователь был в состоянии UserTripInfo:departure,дата: 2023-04-03 20:41:34.836652
+2023-04-03 20:41:55.304 | INFO     | handlers.custom_handlers.send_welcome:send_welcome:16 - 
+Пользователь: Андрей ,id: 449192198, начал работу с ботом в 2023-04-03 20:41:55.304509, написав сообщение Привет
+2023-04-03 20:41:58.124 | INFO     | handlers.custom_handlers.Tickets_directory.cheapest:ask_departure_city_cheapest:22 - 
+Пользователь: Андрей, id: 449192198, начал поиск самых дешёвых билетов в 2023-04-03 20:41:58.124820
+2023-04-03 20:42:35.665 | INFO     | handlers.custom_handlers.Showplaces_directory.showplaces_search:showplaces_search:34 - 
+Пользователь: Андрей,id: 449192198, начал поиск достопримечательностей в городе Mumbai в 2023-04-03 20:42:35.665576
+2023-04-03 20:42:51.095 | INFO     | handlers.custom_handlers.Tickets_directory.list_of_tickets:ask_departure_city_list:19 - 
+Пользователь: Андрей,id: 449192198, начал поиск списка билетов в 2023-04-03 20:42:51.095126
+2023-04-03 20:43:28.834 | INFO     | handlers.custom_handlers.Tickets_directory.list_of_tickets:ask_departure_city_list:19 - 
+Пользователь: Андрей,id: 449192198, начал поиск списка билетов в 2023-04-03 20:43:28.834533
+2023-04-03 20:43:57.986 | INFO     | handlers.custom_handlers.Tickets_directory.list_of_tickets:ask_departure_city_list:19 - 
+Пользователь: Андрей,id: 449192198, начал поиск списка билетов в 2023-04-03 20:43:57.985653
+2023-04-03 20:44:23.619 | INFO     | handlers.custom_handlers.Tickets_directory.list_of_tickets:ask_departure_city_list:19 - 
+Пользователь: Андрей,id: 449192198, начал поиск списка билетов в 2023-04-03 20:44:23.619141
+2023-04-03 20:46:01.604 | INFO     | handlers.custom_handlers.Tickets_directory.list_of_tickets:ask_departure_city_list:19 - 
+Пользователь: Андрей,id: 449192198, начал поиск списка билетов в 2023-04-03 20:46:01.604752
+2023-04-03 21:45:00.334 | INFO     | handlers.custom_handlers.send_welcome:send_welcome:16 - 
+Пользователь: Андрей ,id: 449192198, начал работу с ботом в 2023-04-03 21:45:00.334646, написав сообщение Привет
+2023-04-03 21:45:03.808 | INFO     | handlers.custom_handlers.Tickets_directory.cheapest:ask_departure_city_cheapest:22 - 
+Пользователь: Андрей, id: 449192198, начал поиск самых дешёвых билетов в 2023-04-03 21:45:03.808753
+2023-04-03 21:45:52.237 | INFO     | handlers.custom_handlers.Showplaces_directory.showplaces_search:showplaces_search:34 - 
+Пользователь: Андрей,id: 449192198, начал поиск достопримечательностей в городе London в 2023-04-03 21:45:52.237619
+2023-04-03 21:46:09.571 | INFO     | handlers.custom_handlers.Tickets_directory.cheapest:ask_departure_city_cheapest:22 - 
+Пользователь: Андрей, id: 449192198, начал поиск самых дешёвых билетов в 2023-04-03 21:46:09.571829
+2023-04-03 21:46:41.255 | INFO     | handlers.custom_handlers.Tickets_directory.list_of_tickets:ask_departure_city_list:19 - 
+Пользователь: Андрей,id: 449192198, начал поиск списка билетов в 2023-04-03 21:46:41.255772
+2023-04-03 21:47:30.640 | INFO     | handlers.custom_handlers.Tickets_directory.list_of_tickets:ask_departure_city_list:19 - 
+Пользователь: Андрей,id: 449192198, начал поиск списка билетов в 2023-04-03 21:47:30.640968
+2023-04-03 21:47:54.627 | INFO     | handlers.custom_handlers.Tickets_directory.list_of_tickets:ask_departure_city_list:19 - 
+Пользователь: Андрей,id: 449192198, начал поиск списка билетов в 2023-04-03 21:47:54.627139
+2023-04-03 21:48:34.352 | INFO     | handlers.custom_handlers.History.history_tickets:tickets_history:23 - 
+Пользователь: Андрей, id: 449192198, запросил историю запросов билетов в 2023-04-03 21:48:34.352168
+2023-04-03 21:48:49.585 | INFO     | handlers.custom_handlers.History.history_showplaces:showplaces_history:24 - 
+Пользователь: Андрей,id: 449192198, запросил историю запросов достопримечательностей в 2023-04-03 21:48:49.585200
+2023-04-03 21:49:04.031 | INFO     | handlers.custom_handlers.city_game.lets_play:lest_play:21 - 
+Пользователь: Андрей, id: 449192198, начал игру "Города" в 2023-04-03 21:49:04.031180
+2023-04-03 21:58:19.054 | INFO     | handlers.custom_handlers.Showplaces_directory.showplaces_search:showplaces_search:34 - 
+Пользователь: Андрей,id: 449192198, начал поиск достопримечательностей в городе Paris в 2023-04-03 21:58:19.054360
