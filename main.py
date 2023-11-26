@@ -1,5 +1,6 @@
 from loader import dp, executor
 from utils.on_start import on_startup
+import handlers
 
 
 if __name__ == '__main__':
